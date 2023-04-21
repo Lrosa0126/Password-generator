@@ -12,15 +12,16 @@ function generatePassword() {
   var password = "";
 
   var passwordLength = prompt("Please state how many characters you would like, MUST BE between 8 and 128 characters");
+  if (passwordLength < 8 || passwordLength > 128) {
+    alert("ERROR. Please choose a number between 8 and 128");
+    return null;
+  }
+
   var upperCase = confirm("Would you like to include UPPERCASE letters to your password?");
   var lowerCase = confirm ("Would you like to include lowercase letters to your password?");
   var numeric = confirm("Would you like to include numbers to your password?");
   var specialChar = confirm("Would you like to include special characters to your password? (Ex. ~!@#$%^&*()-=`");
 
-  if (passwordLength < 8 || passwordLength > 128) {
-    alert("ERROR. Please choose a number between 8 and 128");
-    return null;
-  }
 
   if (!upperCase && !lowerCase && !specialChar) {
     alert("ERROR. Please select atleast one type of character");
